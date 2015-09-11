@@ -1,5 +1,6 @@
 var db = require(__dirname + '/../lib/mysql');
 exports.find=function(req,res){
+	console.log(req.ip + "find()");
 	db.query('SELECT * FROM student',
 		function(err, rows){
 			if(err) return next(err);
@@ -7,6 +8,7 @@ exports.find=function(req,res){
 		});
 };
 exports.find1=function(req,res){
+	console.log(req.ip + "find1()");
 	db.query('SELECT * FROM student WHERE studNo=?', [req.params.id],
 		function(err, rows){
 			if(err) return next(err);

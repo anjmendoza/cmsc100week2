@@ -36,6 +36,10 @@ describe ('student' , function(){
 				if(err) throw err;
 				res.should.have.status(200);
 				res.body.should.be.an.instanceOf(Object);
+				res.body.should.have.property('studNo');
+				res.body.should.have.property('name');
+				res.body.should.have.property('bdate');
+				
 				done();
 			});
 		});

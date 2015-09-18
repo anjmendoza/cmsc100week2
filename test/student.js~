@@ -31,11 +31,15 @@ describe ('student' , function(){
 		it('should return newly created record' , function (done){
 			request(url)
 			.post('/students')
-			.send()
+			.send({'studNo': '2015-12345' , 'name' : 'Ann Abendante' , 'bdate' : '1996-10-24'})
 			.end(function(err,res){
 				if(err) throw err;
 				res.should.have.status(200);
 				res.body.should.be.an.instanceOf(Object);
+				res.body.should.have.property('studNo');
+				res.body.should.have.property('name');
+				res.body.should.have.property('bdate');
+				
 				done();
 			});
 		});

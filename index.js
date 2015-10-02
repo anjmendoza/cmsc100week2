@@ -8,5 +8,6 @@ var server = app.listen(5000, function(){
 app.use(require('body-parser')()); //we can get the data na binigay ng client using get.body
 app.use(require('method-override')());
 app.use(require(__dirname + '/config/router')(express.Router()));
+app.use(express.static(__dirname + '/public'));
 
 	
